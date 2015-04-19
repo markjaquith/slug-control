@@ -28,4 +28,15 @@ class CWS_Slug_Control_Test_Sanitization extends CWS_Slug_Control_TestCase {
 			$this->assertEquals( $this->plugin()->rangerific( $in ), $out );
 		}
 	}
+
+	public function test_percentify() {
+		$tests = array(
+			'60% of the time, it works every time' => '60 percent of the time, it works every time',
+			'Between 5% and 15% of people' => 'Between 5 percent and 15 percent of people',
+			'Almost 100%' => 'Almost 100 percent',
+		);
+		foreach ( $tests as $in => $out ) {
+			$this->assertEquals( $this->plugin()->percentify( $in ), $out );
+		}
+	}
 }
