@@ -56,7 +56,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	}
 
 	public function unprependify( $title ) {
-		return preg_replace( '#^((developing|breaking)( news)?|update(s|ed)?):\s#i', '', $title );
+		return preg_replace( '#^((developing|breaking)( news)?|update(s|d)?):\s#i', '', $title );
 	}
 
 	public function rangerific( $title ) {
