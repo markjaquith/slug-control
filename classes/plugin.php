@@ -22,6 +22,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		// This plugin's internal sanitization filters
 		$this->hook( 'cws_tc_sanitize_title', 'uncontraction' );
 		$this->hook( 'cws_tc_sanitize_title', 'percentify' );
+		$this->hook( 'cws_tc_sanitize_title', 'unprependify' );
 	}
 
 	/**
@@ -51,6 +52,10 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 
 	public function percentify( $title ) {
 		return preg_replace( '#\b(\d+)%(\s|$)#', '$1 percent$2', $title );
+	}
+
+	public function unprependify( $title ) {
+		return preg_replace( '#^((developing|breaking)( news)?|update(s|ed)?):\s#i', '', $title );
 	}
 
 	/**
