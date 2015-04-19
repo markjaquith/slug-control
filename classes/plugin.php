@@ -18,6 +18,10 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	public function add_hooks() {
 		$this->hook( 'init' );
 		$this->hook( 'sanitize_title', 9 );
+
+		// This plugin's internal sanitization filters
+		$this->hook( 'cws_tc_sanitize_title', 'uncontraction' );
+		$this->hook( 'cws_tc_sanitize_title', 'percentify' );
 	}
 
 	/**
@@ -27,7 +31,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		$this->load_textdomain( 'cws-slug-control', '/languages' );
 	}
 
-	protected function uncontraction( $title ) {
+	public function uncontraction( $title ) {
 		$apos = "['’]";
 		$contractions = array(
 			"(it|that|s?he|who)${apos}s" => '%s-is',
@@ -45,6 +49,10 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		return $title;
 	}
 
+	public function percentify( $title ) {
+		return preg_replace( '#\b(\d)%\b#', '$1-percent', $title );
+	}
+
 	/**
 	 * Callback for sanitize_title filter
 	 *
@@ -55,7 +63,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	 */
 	public function sanitize_title( $title, $raw_title, $context ) {
 		if ( 'display' === $context || 'save' === $context ) {
-			$title = $this->uncontraction( $title );
+			$title = apply_filters( 'cws_tc_sanitize_title', $title, $raw, $context );
 		}
 		return $title;
 	}
