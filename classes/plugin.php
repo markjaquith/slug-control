@@ -34,11 +34,11 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	public function uncontraction( $title ) {
 		$apos = "['’]";
 		$contractions = array(
-			"(it|that|s?he|who)${apos}s" => '%s-is',
-			"(they|we|you|what|who)${apos}re" => '%s-are',
-			"(it|that|s?he|i|you|we|what|who|why)${apos}s" => '%s-will',
-			"(were|is|[cw]ould|should|might|must|had|has|have|do|ca)n${apos}t" => '%s-not',
-			"([cw]ould|should|might|must|we|you|i|they|what|where)${apos}ve" => '%s-have',
+			"(it|that|s?he|who)${apos}s" => '%s is',
+			"(they|we|you|what|who)${apos}re" => '%s are',
+			"(it|that|s?he|i|you|we|what|who|why)${apos}s" => '%s will',
+			"(were|is|[cw]ould|should|might|must|had|has|have|do|ca)n${apos}t" => '%s not',
+			"([cw]ould|should|might|must|we|you|i|they|what|where)${apos}ve" => '%s have',
 		);
 		foreach ( $contractions as $from => $to ) {
 			$from = '#\b' . $from . '\b#i';
@@ -50,7 +50,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	}
 
 	public function percentify( $title ) {
-		return preg_replace( '#\b(\d)%\b#', '$1-percent', $title );
+		return preg_replace( '#\b(\d+)%(\s|$)#', '$1 percent$2', $title );
 	}
 
 	/**
