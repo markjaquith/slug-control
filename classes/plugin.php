@@ -23,6 +23,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		$this->hook( 'cws_tc_sanitize_title', 'uncontraction' );
 		$this->hook( 'cws_tc_sanitize_title', 'percentify' );
 		$this->hook( 'cws_tc_sanitize_title', 'unprependify' );
+		$this->hook( 'cws_tc_sanitize_title', 'rangerific' );
 	}
 
 	/**
@@ -58,6 +59,9 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		return preg_replace( '#^((developing|breaking)( news)?|update(s|ed)?):\s#i', '', $title );
 	}
 
+	public function rangerific( $title ) {
+		return preg_replace( '#(\s|^)(\d+)([-–—]+)(\d+)(\s|$)#', '$1$2 to $4$5', $title );
+	}
 	/**
 	 * Callback for sanitize_title filter
 	 *
