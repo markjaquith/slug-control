@@ -39,4 +39,16 @@ class CWS_Slug_Control_Test_Sanitization extends CWS_Slug_Control_TestCase {
 			$this->assertEquals( $this->plugin()->percentify( $in ), $out );
 		}
 	}
+
+	public function test_unprependify() {
+		$tests = array(
+			'Breaking: thing happened' => 'thing happened',
+			'Updated: Foo' => 'Foo',
+			'Developing: Bar' => 'Bar',
+			'breaking news: calamity' => 'calamity',
+		);
+		foreach ( $tests as $in => $out ) {
+			$this->assertEquals( $this->plugin()->unprependify( $in ), $out );
+		}
+	}
 }
