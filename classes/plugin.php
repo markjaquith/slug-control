@@ -24,6 +24,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 		$this->hook( 'cws_tc_sanitize_title', 'percentify' );
 		$this->hook( 'cws_tc_sanitize_title', 'unprependify' );
 		$this->hook( 'cws_tc_sanitize_title', 'rangerific' );
+		$this->hook( 'cws_tc_sanitize_title', 'ampersandy' );
 	}
 
 	/**
@@ -85,6 +86,16 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	 */
 	public function rangerific( $title ) {
 		return preg_replace( '#(\s|^)(\d+)([-–—]+)(\d+)(\s|$)#', '$1$2 to $4$5', $title );
+	}
+
+	/**
+	 * Changes ampersands to "and"
+	 *
+	 * @param string $title The post title
+	 * @return string The modified post title
+	 */
+	public function ampersandy( $title ) {
+		return preg_replace( '#(\s)&(?:amp;)?(\s)#', '$1and$2', $title );
 	}
 
 	/**
