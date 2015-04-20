@@ -54,7 +54,7 @@ class CWS_Slug_Control_Test_Sanitization extends CWS_Slug_Control_TestCase {
 
 	public function test_ampersandy() {
 		$tests = array(
-			'& nope nope nope' => '&nope nope nope',
+			'& nope nope nope' => '& nope nope nope',
 			'nope &' => 'nope &',
 			'Simon & Garfunkle' => 'Simon and Garfunkle',
 			'Simon &amp; Garfunkle' => 'Simon and Garfunkle',
