@@ -1,9 +1,12 @@
 # Slug Control #
-Contributors:      markjaquith
+
+[![Build Status](https://travis-ci.org/markjaquith/slug-control.svg?branch=master)](https://travis-ci.org/markjaquith/slug-control)
+
+Contributors:      markjaquith  
 Donate link:       http://txfx.net/wordpress-plugins/donate  
-Tags:  
-Requires at least: 4.1  
-Tested up to:      4.1  
+Tags: slug, post slug, urls  
+Requires at least: 4.0  
+Tested up to:      4.2  
 Stable tag:        0.1.0  
 License:           GPLv2 or later  
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html  
