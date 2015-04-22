@@ -15,7 +15,11 @@ Helps you craft amazing post URL slugs, for that hand-crafted URL feel.
 
 ## Description ##
 
+Isn't it annoying when you craft a post title, and then the URL slug kind of falls short? Like, if your title is **Breaking: Yankees win 3-2 in extra innings. I'm excited & literally can't even** and your post slug turns out like **breaking-yankees-win-3-2-in-extra-innings-im-excited-literally-cant-even**. "cant" isn't a word. It looks silly without the apostrophe. "3-2" is ambiguous because all the words are already separated by dashes. "im" is not a word. "cant" means something else. The ampersand meaning "and" just got dropped. The leading "breaking-" will be silly when the date part of the URL is 3 years old. The whole URL is off. Doesn't this make more sense? **yankees-win-3-to-2-in-extra-innings-i-am-excited-and-literally-can-not-even**. Sure it's really long (and a future version of the plugin will help with that!), but it reads much better.
+
 ## Installation ##
+
+Search for "Slug Control" and install it.
 
 ### Manual Installation ###
 
@@ -24,17 +28,15 @@ Helps you craft amazing post URL slugs, for that hand-crafted URL feel.
 
 ## Frequently Asked Questions ##
 
-### Question ###
+### Are there any options? ###
 
-Answer
-
-## Screenshots ##
-
-1. Description of first screenshot
+Not yet. This is an initial release to test the idea.
 
 ## Contribute ##
 
-Here is how you can contribute:
+Contribute to this plugin on GitHub:
+
+https://github.com/markjaquith/slug-control/issues
 
 ## Changelog ##
 
