@@ -1,6 +1,22 @@
 <?php
 
 class CWS_Slug_Control_Test_Sanitization extends CWS_Slug_Control_TestCase {
+	public function test_uncontraction() {
+		$tests = array(
+			// apostrophe
+			'I literally can\'t even' => 'I literally cannot even',
+			'It\'s going down for real' => 'It is going down for real',
+			'Don\'t cry for me' => 'Do not cry for me',
+			'WE\'RE OUT OF CONTROL' => 'WE are OUT OF CONTROL', // mixed case expected
+			// Curly quote
+			'I literally can’t even' => 'I literally cannot even',
+			'It’s going down for real' => 'It is going down for real',
+		);
+		foreach ( $tests as $in => $out ) {
+			$this->assertEquals( $this->plugin()->uncontraction( $in ), $out );
+		}
+	}
+
 	public function test_rangerific() {
 		$tests = array(
 			// hyphen-minus

@@ -41,12 +41,13 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	 * @return string The modified post title
 	 */
 	public function uncontraction( $title ) {
-		$apos = "['’]";
+		$apos = "(?:'|’)";
 		$contractions = array(
+			"(can)${apos}t" => '%snot',
 			"(it|that|s?he|who)${apos}s" => '%s is',
 			"(they|we|you|what|who)${apos}re" => '%s are',
 			"(it|that|s?he|i|you|we|what|who|why)${apos}s" => '%s will',
-			"(were|is|[cw]ould|should|might|must|had|has|have|do|ca)n${apos}t" => '%s not',
+			"(were|is|[cw]ould|should|might|must|had|has|have|do)n${apos}t" => '%s not',
 			"([cw]ould|should|might|must|we|you|i|they|what|where)${apos}ve" => '%s have',
 		);
 		foreach ( $contractions as $from => $to ) {
