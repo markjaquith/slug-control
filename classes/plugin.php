@@ -109,7 +109,7 @@ class CWS_Slug_Control_Plugin extends WP_Stack_Plugin2 {
 	 */
 	public function sanitize_title( $title, $raw_title, $context ) {
 		if ( 'display' === $context || 'save' === $context ) {
-			$title = apply_filters( 'cws_tc_sanitize_title', $title, $raw, $context );
+			$title = apply_filters( 'cws_tc_sanitize_title', $title, $raw_title, $context );
 		}
 		return $title;
 	}
